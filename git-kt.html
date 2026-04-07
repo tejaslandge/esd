@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & GitHub Mastery | Beginner's Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #020617;
+            color: #e2e8f0;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #2dd4bf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body class="selection:bg-indigo-500/30">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-white/5 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white">G</div>
+                <span class="text-xl font-bold tracking-tight">Git<span class="gradient-text">Flow</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#install" class="hover:text-white transition-colors">Install</a>
+                <a href="#setup" class="hover:text-white transition-colors">Setup</a>
+                <a href="#commands" class="hover:text-white transition-colors">Commands</a>
+                <a href="#pages" class="hover:text-white transition-colors">Pages</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-500/10 blur-[120px] rounded-full -z-10"></div>
+        <div class="max-w-4xl mx-auto text-center animate-fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+                Master <span class="gradient-text">Git & GitHub</span> 
+            </h1>
+            <p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+                The complete visual guide for beginners to start coding, collaborating, and deploying projects like a professional.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#install" class="px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 font-semibold transition-all shadow-lg shadow-indigo-600/20">Get Started</a>
+                <a href="#commands" class="px-8 py-3 rounded-full glass-card hover:bg-white/5 font-semibold transition-all">View Commands</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 pb-24 space-y-12">
+
+        <!-- 1. Git Installation -->
+        <section id="install" class="animate-fade-in" style="animation-delay: 0.1s;">
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="step-number w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg">1</div>
+                <h2 class="text-3xl font-bold">Git Installation (Windows)</h2>
+            </div>
+            <div class="glass-card rounded-2xl p-8">
+                <ul class="space-y-4 text-slate-300">
+                    <li class="flex items-start">
+                        <span class="text-indigo-400 mr-2">➜</span>
+                        <span>Download the Git installer from <a href="https://git-scm.com/download/win" target="_blank" class="text-indigo-400 underline hover:text-indigo-300">git-scm.com</a></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-indigo-400 mr-2">➜</span>
+                        <span>Run the <code>.exe</code> file and click <b>Next</b> for all default options (recommended).</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-indigo-400 mr-2">➜</span>
+                        <span>When asked for the default editor, you can choose <b>VS Code</b> or leave it as Vim.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-indigo-400 mr-2">➜</span>
+                        <span>Open <b>Command Prompt</b> or <b>PowerShell</b> and verify installation:</span>
+                    </li>
+                </ul>
+                <div class="mt-6">
+                    <div class="relative group">
+                        <div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button onclick="copyToClipboard('git --version', this)" class="bg-indigo-600/20 hover:bg-indigo-600/40 p-2 rounded-lg text-xs font-medium border border-indigo-500/30">Copy</button>
+                        </div>
+                        <pre class="bg-black/40 rounded-xl p-5 border border-white/5 font-mono text-sm text-indigo-300"><code>git --version</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. GitHub Account -->
+        <section id="github-account" class="animate-fade-in" style="animation-delay: 0.2s;">
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="step-number w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg">2</div>
+                <h2 class="text-3xl font-bold">GitHub Account Creation</h2>
+            </div>
+            <div class="glass-card rounded-2xl p-8">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4 text-slate-300">
+                        <p>Go to <a href="https://github.com/signup" target="_blank" class="text-indigo-400 underline">github.com/signup</a>.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3"></span>Enter your Email address.</li>
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3"></span>Create a strong Password.</li>
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3"></span>Choose a unique Username.</li>
+                            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-3"></span>Verify your email via the code sent.</li>
+                        </ul>
+                    </div>
+                    <div class="hidden md:block bg-indigo-500/5 rounded-xl border border-indigo-500/10 p-6 text-center">
+                        <svg class="w-24 h-24 mx-auto text-indigo-400 opacity-50 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <p class="text-sm font-medium text-indigo-300">Ready to build the future!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Create Repository -->
+        <section id="create-repo" class="animate-fade-in" style="animation-delay: 0.3s;">
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="step-number w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg">3</div>
+                <h2 class="text-3xl font-bold">Create a Repository</h2>
+            </div>
+            <div class="glass-card rounded-2xl p-8">
+                <div class="space-y-6 text-slate-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full border border-indigo-500/50 flex items-center justify-center text-xs">1</div>
+                        <p>Click the <b class="text-white">+</b> icon in the top right and select <b class="text-indigo-400">New repository</b>.</p>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full border border-indigo-500/50 flex items-center justify-center text-xs">2</div>
+                        <p>Give it a name like <code>my-first-project</code>.</p>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full border border-indigo-500/50 flex items-center justify-center text-xs">3</div>
+                        <p>Keep it <b class="text-indigo-400">Public</b> so others can see it.</p>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full border border-indigo-500/50 flex items-center justify-center text-xs">4</div>
+                        <p>Click <b class="text-white bg-green-700 px-3 py-1 rounded">Create repository</b>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Git Setup -->
+        <section id="setup" class="animate-fade-in" style="animation-delay: 0.4s;">
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="step-number w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg">4</div>
+                <h2 class="text-3xl font-bold">Git Setup (First Time)</h2>
+            </div>
+            <div class="glass-card rounded-2xl p-8 space-y-6">
+                <p class="text-slate-400">Only needs to be done once per computer.</p>
+                
+                <div class="space-y-4">
+                    <p class="text-sm font-medium text-slate-400 uppercase tracking-wider">Set Username</p>
+                    <div class="relative group">
+                        <div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button onclick="copyToClipboard('git config --global user.name \'Your Name\'', this)" class="bg-indigo-600/20 hover:bg-indigo-600/40 p-2 rounded-lg text-xs font-medium border border-indigo-500/30">Copy</button>
+                        </div>
+                        <pre class="bg-black/40 rounded-xl p-5 border border-white/5 font-mono text-sm text-indigo-300"><code>git config --global user.name "Your Name"</code></pre>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-sm font-medium text-slate-400 uppercase tracking-wider">Set Email</p>
+                    <div class="relative group">
+                        <div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button onclick="copyToClipboard('git config --global user.email \'your-email@example.com\'', this)" class="bg-indigo-600/20 hover:bg-indigo-600/40 p-2 rounded-lg text-xs font-medium border border-indigo-500/30">Copy</button>
+                        </div>
+                        <pre class="bg-black/40 rounded-xl p-5 border border-white/5 font-mono text-sm text-indigo-300"><code>git config --global user.email "your-email@example.com"</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Clone Repository -->
+        <section id="clone" class="animate-fade-in" style="animation-delay: 0.5s;">
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="step-number w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg">5</div>
+                <h2 class="text-3xl font-bold">Clone Repository</h2>
+            </div>
+            <div class="glass-card rounded-2xl p-8 space-y-6">
+                <p class="text-slate-300">Download your GitHub project to your computer:</p>
+                <div class="relative group">
+                    <div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button onclick="copyToClipboard('git clone https://github.com/username/repository.git', this)" class="bg-indigo-600/20 hover:bg-indigo-600/40 p-2 rounded-lg text-xs font-medium border border-indigo-500/30">Copy</button>
+                    </div>
+                    <pre class="bg-black/40 rounded-xl p-5 border border-white/5 font-mono text-sm text-indigo-300"><code>git clone https://github.com/username/repository.git</code></pre>
+                </div>
+                <div class="relative group">
+                    <div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button onclick="copyToClipboard('cd repository', this)" class="bg-indigo-600/20 hover:bg-indigo-600/40 p-2 rounded-lg text-xs font-medium border border-indigo-500/30">Copy</button>
+                    </div>
+                    <pre class="bg-black/40 rounded-xl p-5 border border-white/5 font-mono text-sm text-indigo-300"><code>cd repository</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Basic Commands -->
+        <section id="commands" class="animate-fade-in" style="animation-delay: 0.6s;">
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="step-number w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg">6</div>
+                <h2 class="text-3xl font-bold">Basic Git Commands</h2>
+            </div>
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-8 space-y-6">
+                    <div class="grid gap-4">
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all flex justify-between items-center group">
+                            <div>
+                                <p class="text-sm font-bold text-indigo-400">Check Changes</p>
+                                <code class="text-slate-300">git status</code>
+                            </div>
+                            <button onclick="copyToClipboard('git status', this)" class="opacity-0 group-hover:opacity-100 px-3 py-1 rounded bg-indigo-600 text-xs">Copy</button>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all flex justify-between items-center group">
+                            <div>
+                                <p class="text-sm font-bold text-indigo-400">Add All Files</p>
+                                <code class="text-slate-300">git add .</code>
+                            </div>
+                            <button onclick="copyToClipboard('git add .', this)" class="opacity-0 group-hover:opacity-100 px-3 py-1 rounded bg-indigo-600 text-xs">Copy</button>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all flex justify-between items-center group">
+                            <div>
+                                <p class="text-sm font-bold text-indigo-400">Save Changes (Commit)</p>
+                                <code class="text-slate-300">git commit -m "My first commit"</code>
+                            </div>
+                            <button onclick="copyToClipboard('git commit -m \'My first commit\'', this)" class="opacity-0 group-hover:opacity-100 px-3 py-1 rounded bg-indigo-600 text-xs">Copy</button>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all flex justify-between items-center group">
+                            <div>
+                                <p class="text-sm font-bold text-indigo-400">Upload to GitHub</p>
+                                <code class="text-slate-300">git push origin main</code>
+                            </div>
+                            <button onclick="copyToClipboard('git push origin main', this)" class="opacity-0 group-hover:opacity-100 px-3 py-1 rounded bg-indigo-600 text-xs">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Initializing Project -->
+        <section id="init" class="animate-fade-in" style="animation-delay: 0.7s;">
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="step-number w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg">7</div>
+                <h2 class="text-3xl font-bold">New Project Without Clone</h2>
+            </div>
+            <div class="glass-card rounded-2xl p-8">
+                <p class="text-slate-400 mb-6 font-medium">Inside your local project folder:</p>
+                <div class="bg-black/40 rounded-xl p-5 border border-white/5 space-y-2 font-mono text-sm text-indigo-300 relative group">
+                    <button onclick="copyAllInPre(this)" class="absolute right-4 top-4 bg-indigo-600/20 hover:bg-indigo-600/40 p-2 rounded-lg text-xs font-medium border border-indigo-500/30 opacity-0 group-hover:opacity-100 transition-opacity">Copy All</button>
+                    <div>git init</div>
+                    <div>git add .</div>
+                    <div>git commit -m "First commit"</div>
+                    <div>git branch -M main</div>
+                    <div>git remote add origin https://github.com/user/repo.git</div>
+                    <div>git push -u origin main</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. GitHub Pages -->
+        <section id="pages" class="animate-fade-in" style="animation-delay: 0.8s;">
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="step-number w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg">8</div>
+                <h2 class="text-3xl font-bold">GitHub Pages Deployment</h2>
+            </div>
+            <div class="glass-card rounded-2xl p-8">
+                <div class="space-y-6 text-slate-300">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-2 h-2 rounded-full bg-indigo-500"></div>
+                        <p>Go to your repo and click <b class="text-indigo-400">Settings</b>.</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-2 h-2 rounded-full bg-indigo-500"></div>
+                        <p>Click <b class="text-indigo-400">Pages</b> in the left sidebar.</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-2 h-2 rounded-full bg-indigo-500"></div>
+                        <p>Under Build and deployment, select <b class="text-white">Main branch</b>.</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-2 h-2 rounded-full bg-indigo-500"></div>
+                        <p>Click <b class="text-indigo-400">Save</b>. Your URL will be live in 1-2 minutes!</p>
+                    </div>
+                </div>
+                <div class="mt-8 p-4 rounded-xl bg-indigo-600/10 border border-indigo-500/20 flex items-center space-x-4">
+                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-sm">URL format: <code>https://username.github.io/repository/</code></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 Git Mastery Guide. Built with Tailwind CSS.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function copyToClipboard(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'Copied!';
+                btn.classList.add('bg-green-600/40', 'border-green-500/40');
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('bg-green-600/40', 'border-green-500/40');
+                }, 2000);
+            });
+        }
+
+        function copyAllInPre(btn) {
+            const pre = btn.parentElement;
+            const lines = Array.from(pre.querySelectorAll('div')).map(div => div.innerText);
+            const text = lines.join('\n');
+            copyToClipboard(text, btn);
+        }
+    </script>
+</body>
+</html>
